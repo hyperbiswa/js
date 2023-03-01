@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Color Picker Example</title>
+</head>
+<body>
+  <input type="color" id="colorPicker">
+  <script>
+    var colorPicker = document.getElementById("colorPicker");
+    colorPicker.addEventListener("change", function() {
+      console.log("Selected color: " + colorPicker.value);
+    });
+  </script>
+</body>
+</html>
