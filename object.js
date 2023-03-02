@@ -20,3 +20,14 @@ const valuesArr = Object.values(obj);
 
 console.log(keysArr);   // Output: ["username", "age"]
 console.log(valuesArr); // Output: ["bijit", 20]
+
+// USAGE 3 
+const paramToObj = (obj = {}) => {
+  const paramStr = 'username=hahah&logged=false&color=blue&color=red';
+  const paramArr = paramStr.split('&');
+  paramArr.forEach((pair) => {
+    const [key, value] = pair.split('=');
+    obj[key] = value;
+  });
+  console.log(obj);
+};
