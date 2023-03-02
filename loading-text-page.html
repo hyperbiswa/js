@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Loading Page</title>
+  </head>
+  <body>
+    <script>
+      window.addEventListener("load", () => {
+        let $ = (selector) => {
+          let method = {
+            create: (element) => {
+              return selector.createElement(element);
+            },
+            addClass: (className) => {
+              return selector.classList.add(className);
+            },
+            css: (cssObj = {}) => {
+              return Object.assign(selector.style, cssObj);
+            },
+            text: (text) => {
+              return (selector.textContent = text);
+            },
+          };
+          return method;
+        };
+        let loadScreen = $(document).create("div");
+        $(loadScreen).addClass("load");
+        $(loadScreen).css({ height: "100vh", width: "100%" });
+        let loader = $(document).create("div");
+        $(loader).css({
+          fontSize: "24px",
+          fontFamily: "monospace",
+          fontWeight: 700,
+          position: "fixed",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)"
+        });
+        let loadText = "Loading.";
+        let int = setInterval(() => {
+          if (loadText.length < 10) {
+            loadText += ".";
+          } else {
+            loadText = "Loading.";
+          }
+          loader.textContent = loadText;
+        }, 500);
+        setTimeout(() => {
+          clearInterval(int);
+          loadScreen.style.display = "none";
+        }, 3000);
+        loadScreen.appendChild(loader);
+
+        document.body.appendChild(loadScreen);
+      });
+    </script>
+  </body>
+</html>
