@@ -8,6 +8,13 @@ console.log(formatted11); // "123.5"
 var str12 = 'Hello, world!';
 var chars12 = str12.charAt(0) + str12.charAt(6) + str12.charAt(11);
 console.log(chars12); // "Hwd"
+//stract numbers from string 
+const str14 = "55+87-98-";
+const regex14 = /\d+/g; // Matches one or more digits
+
+const numbers14 = str14.match(regex14); // Returns an array of matched numbers
+
+console.log(numbers14); // Output: ["55", "87", "98"]
 
 //usage of substring
 var str13 = 'Hello, world!';
